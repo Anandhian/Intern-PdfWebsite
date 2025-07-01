@@ -33,4 +33,4 @@ This is a web application that allows users to interact with PDF files. Users ca
 cd Frontend
 npm install
 npm run dev
-.
+
