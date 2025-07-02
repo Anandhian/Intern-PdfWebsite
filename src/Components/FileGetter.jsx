@@ -2,7 +2,7 @@ import { FaFileAlt } from "react-icons/fa";
 
 export default function FileGetter() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-12 px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center py-24 px-4">
       {/* Header Section */}
       <div className="bg-blue-100 w-[800px] p-6 rounded-md text-left mb-10 relative">
         <h1 className="text-4xl font-bold text-gray-800">Merge PDF</h1>
