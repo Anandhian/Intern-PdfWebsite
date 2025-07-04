@@ -1,24 +1,34 @@
-import React from 'react'
-import FileGetter from './Components/FileGetter'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import FilePreview from './Pages/FilePreview'
-import MergeSuccess from './Pages/MergeSuccess'
-import Navbar from './Components/Navbar'
+// App.jsx
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import FilePreview from "./pages/FilePreview";
+import MergeSuccess from "./pages/MergeSuccess";
+import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-      <Navbar></Navbar>
-        <Routes>
-          <Route path="/" element={<FileGetter />} />
-         <Route path="/preview" element={<FilePreview />} />
-         <Route path="/success" element={<MergeSuccess />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        {/* Home Route */}
+        <Route path="/" element={<Home />} />
 
-export default App
+        {/* Static Routes */}
+        <Route path="/preview" element={<FilePreview />} />
+        <Route path="/success" element={<MergeSuccess />} />
+
+        {/* Tool Routes via Config */}
+        {toolRoutes.map(({ path, element: Component, props }) => (
+          <Route key={path} path={path} element={<Component {...props} />} />
+        ))}
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
+
 
