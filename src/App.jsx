@@ -2,8 +2,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import FilePreview from "./pages/FilePreview";
+import Home from '../src/Pages/Home'
+import FilePreview from "./Pages/FilePreview";
 import MergeSuccess from "./pages/Done"; 
 
 import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
