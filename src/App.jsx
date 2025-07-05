@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from '../src/Pages/Home'
 import FilePreview from "./Pages/FilePreview";
-import MergeSuccess from "./pages/Done"; 
+import Done from '../src/Pages/Done'
 
 import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
 import Navbar from "./Components/Navbar";
@@ -20,7 +20,7 @@ const App = () => {
 
         {/* Static Routes */}
         <Route path="/preview" element={<FilePreview />} />
-        <Route path="/success" element={<MergeSuccess />} />
+        <Route path="/success" element={<Done />} />
 
         {/* Tool Routes via Config */}
         {toolRoutes.map(({ path, element: Component, props }) => (

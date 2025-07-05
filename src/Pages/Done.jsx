@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MergeSuccess = () => {
+const Done = () => {
   return (
     <div className="flex flex-col items-center justify-center py-40 bg-white px-4">
       {/* Green checkbox + Done */}
@@ -26,6 +26,6 @@ const MergeSuccess = () => {
   );
 };
 
-export default MergeSuccess;
+export default Done ;
 
 
