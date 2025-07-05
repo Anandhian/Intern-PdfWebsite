@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ToolsCard from "../components/ToolsCard";
+import ToolsCard from "../Components/ToolsCard";
 import { tools } from "../utils/cardData";
 
 function Home() {
