@@ -1,5 +1,5 @@
 // routesConfig.js
-import UploadBox from "../components/UploadBox";
+import UploadBox from "../Components/UploadBox";
 
 const toolRoutes = [
   {
