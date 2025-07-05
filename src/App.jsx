@@ -1,17 +1,19 @@
 // App.jsx
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+
 import Home from "./pages/Home";
 import FilePreview from "./pages/FilePreview";
 import MergeSuccess from "./pages/Done"; 
 
 import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
+import Navbar from "./Components/Navbar";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+    <Navbar></Navbar>
+      
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
