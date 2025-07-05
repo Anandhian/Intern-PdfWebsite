@@ -25,29 +25,27 @@ function Home() {
 
   return (
     <section className="py-14 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-
-        {/* Banner with image */}
-        <div className="w-[796px] h-[130px] opacity-70 bg-blue-100 rounded-[4px]
-         mx-auto mb-10 overflow-hidden shadow-sm flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        {/* ✅ Responsive Banner */}
+        <div className="w-full max-w-5xl mx-auto mb-10 bg-blue-100 rounded-[4px] opacity-90 overflow-hidden shadow-sm flex flex-col md:flex-row items-center md:items-stretch justify-between">
           {/* Text Content */}
-          <div className="p-4">
-            <h3 className="text-lg font-extrabold text-[#2869DA] mb-1">
+          <div className="p-4 w-full md:w-2/3">
+            <h3 className="text-base sm:text-lg font-extrabold text-[#2869DA] mb-1">
               Your All-in-one PDF Utility
             </h3>
-            <p className="text-xs text-blue-800">
+            <p className="text-xs sm:text-sm text-blue-800">
               Merge, split, convert & more for free with PDF Tools.
             </p>
           </div>
 
-          {/* Right side: Image + Label */}
-          <div className="flex items-center gap-2 bg-black text-white text-[10px] font-bold uppercase py-1 px-3 h-full">
+          {/* Right Side: Image + Label */}
+          <div className="flex items-center gap-2 bg-black text-white text-[10px] font-bold uppercase py-2 px-4 md:py-1 md:px-3 md:rounded-l-[4px] w-full md:w-auto justify-center">
             <img
               src="mergeicon.png"
               alt="Merge Icon"
-              className=" "
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
             />
-            <span>Merge</span>
+            <span className="text-xs sm:text-sm">Merge</span>
           </div>
         </div>
 
@@ -91,5 +89,6 @@ function Home() {
 }
 
 export default Home;
+
 
 
