@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import FilePreview from "./pages/FilePreview";
-import MergeSuccess from "./pages/MergeSuccess";
+import MergeSuccess from "./pages/Done"; 
+
 import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
 
 const App = () => {
