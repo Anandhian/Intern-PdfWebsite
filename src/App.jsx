@@ -1,13 +1,15 @@
-// App.jsx
+// src/App.jsx
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Home";
-import FilePreview from "./Pages/FilePreview";
-import Done from "./Pages/Done";
-
-import toolRoutes from "./utils/routesConfig"; // Tool-based route config
 import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
+import Done from "./Pages/Done";
+import FilePreview from "./Pages/pdf/FilePreview";
+
+
+import toolRoutes from "./utils/routesConfig";
+import Compression from "./Pages/pdf/Compression";
 
 const App = () => {
   return (
@@ -15,26 +17,39 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        {/* Home Route */}
-        <Route path="/" element={<Home />} />
-
         {/* Static Routes */}
-        <Route path="/preview" element={<FilePreview />} />
+        <Route path="/" element={<Home />} />
         <Route path="/success" element={<Done />} />
+        <Route
+          path="/merge/preview"
+          element={
+            <FilePreview
+              title="Merge PDF"
+              subtitle="Combine multiple PDF files into a single document"
+              bgColor="#DBEAFE"
+              titleColor="#1E293B"
+              textColor="#FFFFFF"
+              
+            />
+          }
+        />
+        <Route path="/compress/preview" element={<Compression></Compression>} />
 
-        {/* Tool Routes via Config */}
+        {/* Tool-based Routes */}
         {toolRoutes.map(({ path, element: Component, props }) => (
-          <Route key={path} path={path} element={<Component {...props} />} />
+          <Route
+            key={path}
+            path={path}
+            element={<Component {...(props || {})} />}
+          />
         ))}
-
-        {/* Optional: NotFound Fallback Route */}
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );
 };
 
 export default App;
+
 
 
 
