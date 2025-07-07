@@ -1,74 +1,60 @@
-// src/components/Navbar.jsx
 import React, { useState } from "react";
-import { FaLayerGroup, FaBars, FaTimes } from "react-icons/fa";
+import { FaLayerGroup, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import AllToolsDropdown from "./AllToolsDropdown"; // Make sure this file exists
+import AllToolsDropdown from "./AllToolsDropdown";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="w-full sticky top-0 z-50 border-y border-gray-200 bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <FaLayerGroup className="text-blue-600 text-xl" />
-          <span className="font-bold text-black text-lg">PDF Buddy</span>
+    <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white">
+      <div className="w-full max-w-[1280px] mx-auto px-5 py-4 flex items-center relative">
+        {/* Logo - Left (Now clickable to go home) */}
+        <Link to="/" className="flex items-center gap-2 z-10">
+          <FaLayerGroup className="text-pink-600 text-[20px]" />
+          <span className="text-[16px] font-bold text-black">PDF Buddy</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-black font-medium">
+        {/* Center Nav - Only visible on md and up */}
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-[32px] text-[14px] font-medium text-black items-center">
           <AllToolsDropdown />
-          <Link to="/compress" className="hover:text-blue-600">
-            Convert PDF
-          </Link>
-          <Link to="/merge" className="hover:text-blue-600">
-            Merge PDF
-          </Link>
-          <Link to="/split" className="hover:text-blue-600">
-            Split PDF
-          </Link>
+          <Link to="/convert" className="hover:text-blue-600">Convert PDF</Link>
+          <Link to="/merge" className="hover:text-blue-600">Merge PDF</Link>
+          <Link to="/split" className="hover:text-blue-600">Split PDF</Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-2xl text-gray-700 focus:outline-none"
-          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          aria-label="Toggle Menu"
-        >
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {/* Mobile menu button - Right side, only on mobile */}
+        <div className="ml-auto md:hidden z-10">
+          <button
+            className="text-2xl text-gray-700"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <FaBars />
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Slide-In Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-3 text-sm text-black font-medium">
-          <AllToolsDropdown />
-          <Link
-            to="/compress"
-            className="block hover:text-blue-600"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Convert PDF
-          </Link>
-          <Link
-            to="/merge"
-            className="block hover:text-blue-600"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Merge PDF
-          </Link>
-          <Link
-            to="/split"
-            className="block hover:text-blue-600"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Split PDF
-          </Link>
-        </div>
+        <MobileMenu onClose={() => setIsMobileMenuOpen(false)} />
       )}
     </div>
   );
 };
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

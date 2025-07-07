@@ -20,7 +20,10 @@ const AllToolsDropdown = () => {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <div className="cursor-pointer inline-flex items-center space-x-1">
-          <span className="font-bold">All Tools</span>
+        <span className="font-medium text-[14px] leading-[21px] tracking-[0px] font-inter">
+  All Tools
+</span>
+
           <ChevronDownIcon />
         </div>
       </DropdownMenu.Trigger>
