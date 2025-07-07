@@ -2,18 +2,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from '../src/Pages/Home'
+import Home from "./Pages/Home";
 import FilePreview from "./Pages/FilePreview";
-import Done from '../src/Pages/Done'
+import Done from "./Pages/Done";
 
-import toolRoutes from "./utils/routesConfig"; // ✅ Tool-based route config
+import toolRoutes from "./utils/routesConfig"; // Tool-based route config
 import Navbar from "./Components/Navbar";
 
 const App = () => {
   return (
     <BrowserRouter>
-    <Navbar></Navbar>
-      
+      <Navbar />
+
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
@@ -26,6 +26,9 @@ const App = () => {
         {toolRoutes.map(({ path, element: Component, props }) => (
           <Route key={path} path={path} element={<Component {...props} />} />
         ))}
+
+        {/* Optional: NotFound Fallback Route */}
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );
