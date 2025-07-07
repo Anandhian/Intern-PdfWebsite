@@ -1,6 +1,7 @@
 // routesConfig.js
 import UploadBox from "../Components/UploadBox";
 
+
 const toolRoutes = [
   {
     path: "/merge",
@@ -104,5 +105,3 @@ const toolRoutes = [
 ];
 
 export default toolRoutes;
-
-
