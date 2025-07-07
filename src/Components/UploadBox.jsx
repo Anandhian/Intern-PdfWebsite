@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import file from "../assets/file.png";
 
 const UploadBox = ({
   title,
@@ -6,75 +8,107 @@ const UploadBox = ({
   bgColor,
   titleColor,
   textColor,
-  onFileChange,
-  onSubmit,
+  onSubmitRedirect,
+  bannerImage,
 }) => {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const navigate = useNavigate();
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    setSelectedFiles(files);
+    localStorage.setItem("pdfFiles", JSON.stringify(files.map(file => file.name)));
+
+    // Automatically redirect after selecting files
+    if (files.length > 0 && onSubmitRedirect) {
+      navigate(onSubmitRedirect);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 px-4 sm:px-6 md:px-10">
-      {/* Header */}
+    <div className="min-h-screen flex flex-col items-center py-10 bg-white">
+      {/* Banner */}
       <div
-        className="w-full max-w-3xl p-4 sm:p-6 rounded-md text-left mb-8 sm:mb-10 relative"
+        className="w-full max-w-3xl p-6 rounded-md text-left mb-10 relative overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        <h1
-          className="text-xl sm:text-2xl md:text-3xl font-bold"
-          style={{ color: titleColor }}
-        >
+        {bannerImage && (
+          <img
+            src={bannerImage}
+            alt="Banner"
+            className="absolute top-4 right-4 w-20 h-20 object-contain pointer-events-none"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+        )}
+        <h1 className="text-3xl font-bold" style={{ color: titleColor }}>
           {title}
         </h1>
-        <p
-          className="text-xs sm:text-sm mt-2 leading-snug"
-          style={{ color: textColor }}
-        >
+        <p className="text-sm mt-2" style={{ color: textColor }}>
           {subtitle}
         </p>
-        <div className="absolute right-4 top-4 text-xl opacity-20">↗</div>
       </div>
 
-      {/* File Upload Box - Hidden on mobile */}
-      <div className="hidden sm:flex w-full max-w-4xl bg-gray-100 border border-dashed border-gray-400 rounded-lg flex-col items-center justify-center text-center p-6 sm:p-10">
-        <p className="text-gray-600 text-sm sm:text-base">
-          Drag & drop files here
-        </p>
-        <p className="text-gray-600 text-sm sm:text-base mb-4">or</p>
+      {/* Upload Box */}
+      <div
+        className="hidden sm:flex flex-col items-center justify-center text-center bg-gray-100 relative"
+        style={{
+          width: "960px",
+          height: "200px",
+          borderRadius: "8px",
+          position: "relative",
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 1 }}
+        >
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            rx="8"
+            ry="8"
+            fill="none"
+            stroke="#9CA3AF"
+            strokeWidth="1"
+            strokeDasharray="3,3"
+          />
+        </svg>
+        <div className="z-10 flex flex-col items-center">
+          <img src={file} alt="File" className="w-8 h-8 mb-2 opacity-80" />
+          <p className="text-gray-600">Drag & drop files here</p>
+          <p className="text-gray-600 mb-4">or</p>
+          <label
+            htmlFor="fileInput"
+            className="bg-blue-600 text-white px-6 py-2 rounded cursor-pointer"
+          >
+            Select PDF file
+          </label>
+        </div>
+      </div>
 
+      {/* Mobile Select Button */}
+      <div className="sm:hidden mt-4">
         <label
           htmlFor="fileInput"
-          className="px-6 py-2 sm:px-8 sm:py-3 border border-blue-600 text-blue-600 text-sm sm:text-base font-semibold rounded cursor-pointer hover:bg-blue-50 transition"
+          className="bg-blue-600 text-white px-6 py-2 rounded cursor-pointer"
         >
           Select PDF file
         </label>
       </div>
 
-      {/* File Select Button - Visible only on mobile */}
-      <div className="sm:hidden">
-        <label
-          htmlFor="fileInput"
-          className="px-6 py-2 mt-4 border bg-blue-600 border-blue-600 text-white text-sm font-semibold rounded cursor-pointer hover:bg-blue-50 transition"
-        >
-          Select PDF file
-        </label>
-      </div>
-
-      {/* File Input */}
+      {/* Hidden File Input */}
       <input
         id="fileInput"
         type="file"
         multiple
         accept="application/pdf"
         className="hidden"
-        onChange={onFileChange}
+        onChange={handleFileChange}
       />
-
-      {/* Submit Button */}
-      {onSubmit && (
-        <button
-          className="mt-6 bg-green-600 text-white px-6 py-2 sm:px-8 sm:py-3 rounded hover:bg-green-700 text-sm sm:text-base"
-          onClick={onSubmit}
-        >
-          {title}
-        </button>
-      )}
     </div>
   );
 };
@@ -83,5 +117,12 @@ export default UploadBox;
 
 
 
-  
+
+
+
+
+
+
+
+
 

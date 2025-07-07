@@ -7,7 +7,7 @@ const tools = [
   { name: "Merge PDF", path: "/merge" },
   { name: "Compress PDF", path: "/compress" },
   { name: "Split PDF", path: "/split" },
-  { name: "PDF to WORD", path: "/tool/pdftoword" },
+  { name: "PDF to WORD", path: "/pdftoword" },
   { name: "PDF to EXCEL", path: "/pdftoexcel" },
   { name: "PDF to POWERPOINT", path: "/pdftopowerpoint" },
   { name: "WORD to PDF", path: "/wordtopdf" },
