@@ -1,7 +1,23 @@
-import React from 'react';
-import { FaPlus } from 'react-icons/fa';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 const FilePreview = () => {
+  const navigate = useNavigate();
+
+  const handleMerge = () => {
+    // Simulate file merge
+    // In real case, call API and store the result
+    const blob = new Blob(["Merged PDF content"], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+
+    // Store URL in localStorage (or context, etc.)
+    localStorage.setItem("mergedPdfUrl", url);
+
+    // Redirect to done page
+    navigate("/success");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white relative">
       {/* Header Banner */}
@@ -47,15 +63,27 @@ const FilePreview = () => {
         </button>
       </div>
 
-      {/* Tooltip Floating Higher & Outside */}
-      <div className="absolute right-10  top-[48%] transform -translate-y-1/2 bg-white border border-gray-400 rounded-md px-4 py-2 text-sm text-gray-700 shadow-md w-64">
-        Reorder your pdf by drag and drop the files as you like
+      {/* Tooltip Floating Right */}
+      <div className="absolute right-10 top-[48%] transform -translate-y-1/2 bg-white border border-gray-400 rounded-md px-4 py-2 text-sm text-gray-700 shadow-md w-64">
+        Reorder your PDF by dragging and dropping the files as you like
+      </div>
+
+      {/* ✅ Merge Button */}
+      <div className="fixed bottom-10 right-10">
+        <button
+          onClick={handleMerge}
+          className="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700"
+        >
+          Merge files
+        </button>
       </div>
     </div>
   );
 };
 
 export default FilePreview;
+
+
 
 
 

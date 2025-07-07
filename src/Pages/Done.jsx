@@ -1,6 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const Done = () => {
+  const handleDownload = () => {
+    // Simulated file for download (replace with real merged PDF)
+    const blob = new Blob(["Merged PDF content"], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "merged.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center py-40 bg-white px-4">
       {/* Green checkbox + Done */}
@@ -16,16 +30,22 @@ const Done = () => {
       </div>
 
       {/* Subtext */}
-      <p className="text-gray-500 font-semibold text-sm mb-6">Your files are merged successfully</p>
+      <p className="text-gray-500 font-semibold text-sm mb-6">
+        Your files are merged successfully
+      </p>
 
       {/* Download Button */}
-      <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-28 rounded-md text-base">
+      <button
+        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-28 rounded-md text-base"
+        onClick={handleDownload}
+      >
         Download file
       </button>
     </div>
   );
 };
 
-export default Done ;
+export default Done;
+
 
 

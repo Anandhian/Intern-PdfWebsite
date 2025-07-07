@@ -3,6 +3,7 @@ import { FaLayerGroup, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AllToolsDropdown from "./AllToolsDropdown";
 import MobileMenu from "./MobileMenu";
+import ConvertDropdown from "./ConvertDropdown";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,9 +18,10 @@ const Navbar = () => {
         </Link>
 
         {/* Center Nav - Only visible on md and up */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-[32px] text-[14px] font-medium text-black items-center">
+        <div className="hidden md:flex absolute  left-1/2 -translate-x-1/2 gap-[32px] text-[14px] font-medium text-black items-center">
           <AllToolsDropdown />
-          <Link to="/convert" className="hover:text-blue-600">Convert PDF</Link>
+            <ConvertDropdown></ConvertDropdown>
+          
           <Link to="/merge" className="hover:text-blue-600">Merge PDF</Link>
           <Link to="/split" className="hover:text-blue-600">Split PDF</Link>
         </div>
