@@ -20,7 +20,19 @@ const App = () => {
         {/* Static Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/success" element={<Done />} />
-        <Route path="/merge/preview" element={<FilePreview />} />
+        <Route
+          path="/merge/preview"
+          element={
+            <FilePreview
+              title="Merge PDF"
+              subtitle="Combine multiple PDF files into a single document"
+              bgColor="#DBEAFE"
+              titleColor="#1E293B"
+              textColor="#FFFFFF"
+              
+            />
+          }
+        />
         <Route path="/compress/preview" element={<Compression></Compression>} />
 
         {/* Tool-based Routes */}

@@ -20,7 +20,7 @@ const Compression = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center px-4 pt-10">
+    <div className="min-h-screen bg-white flex flex-col items-center px-4 pt-10 relative">
       {/* Header */}
       <div className="bg-[#F6F17F] w-full max-w-[796px] h-[105px] p-6 rounded-md text-left mb-10 relative">
         <h1 className="text-[32px] font-bold text-[#65621B] leading-12">
@@ -29,7 +29,6 @@ const Compression = () => {
         <p className="text-[12px] font-semibold text-[#6B7582] mt-1 leading-none">
           Reduce the file size of your PDF documents.
         </p>
-
         {/* Right Arrow Icon */}
         <div className="absolute right-4 top-4 opacity-20">
           <svg
@@ -49,8 +48,8 @@ const Compression = () => {
         </div>
       </div>
 
-      {/* Main Content Container */}
-      <div className="relative w-full max-w-5xl mt-12 flex justify-center">
+      {/* Responsive Main Content */}
+      <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start justify-center gap-8">
         {/* File Preview */}
         {fileNames.length > 0 && (
           <div className="flex flex-col items-center">
@@ -59,14 +58,14 @@ const Compression = () => {
                 PDF
               </div>
             </div>
-            <p className="mt-2 text-sm font-medium text-black">
+            <p className="mt-2 text-sm font-medium text-black text-center">
               {fileNames[0]}
             </p>
           </div>
         )}
 
-        {/* Floating Compression Options */}
-        <div className="absolute top-0 right-[-110px] flex flex-col gap-4">
+        {/* Compression Options */}
+        <div className="flex flex-col gap-4">
           {[
             {
               value: "high",
@@ -113,7 +112,7 @@ const Compression = () => {
 
       {/* Compress Button */}
       <button
-        className="absolute bottom-10 right-10 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded font-semibold"
+        className="mt-12 md:absolute md:bottom-10 md:right-10 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded font-semibold"
         onClick={handleCompress}
       >
         Compress PDF
@@ -123,6 +122,7 @@ const Compression = () => {
 };
 
 export default Compression;
+
 
 
 
