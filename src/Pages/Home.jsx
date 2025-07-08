@@ -60,9 +60,10 @@ function Home() {
         </div>
 
         {/* ✅ Section Title */}
-        <h2 className="text-[40px] leading-[100%] tracking-[-0.02em] font-black text-center mb-8">
-          Popular Tools
-        </h2>
+      <h2 className=" popular-heading  font-['Inter'] text-center mb-8">
+  Popular Tools
+</h2>
+
 
         {/* ✅ Tabs */}
         <div className="flex justify-center space-x-8 mb-10">

@@ -1,4 +1,4 @@
-// utils/cardData.js (or wherever you define this)
+// utils/cardData.js
 
 import merge from "../assets/merge.svg";
 import split from "../assets/split.svg";
@@ -28,7 +28,7 @@ export const tools = [
     icon: merge,
     cornerImage: mergehome,
     link: "/merge",
-    color: "bg-blue-100",
+    bgColor: "#DBEAFE",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ export const tools = [
     icon: split,
     cornerImage: splithome,
     link: "/split",
-    color: "bg-green-200",
+    bgColor: "#7DF6CD",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ export const tools = [
     icon: compress,
     cornerImage: compresshome,
     link: "/compress",
-    color: "bg-yellow-200",
+    bgColor: "#FDE68A",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const tools = [
     icon: pdftoword,
     cornerImage: pdftowordhome,
     link: "/pdftoword",
-    color: "bg-purple-200",
+    bgColor: "#FBCFE8",
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const tools = [
     icon: pdftoexcel,
     cornerImage: pdftoexcelhome,
     link: "/pdftoexcel",
-    color: "bg-red-200",
+    bgColor: "#FEBCAF",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ export const tools = [
     icon: pdftopowerpoint,
     cornerImage: powerpointtopdfhome,
     link: "/pdftopowerpoint",
-    color: "bg-lime-200",
+    bgColor: "#C2F496",
   },
   {
     id: 7,
@@ -82,7 +82,7 @@ export const tools = [
     icon: wordtopdf,
     cornerImage: wordtopdfhome,
     link: "/wordtopdf",
-    color: "bg-cyan-200",
+    bgColor: "#8AD3D8",
   },
   {
     id: 8,
@@ -90,8 +90,8 @@ export const tools = [
     description: "Transform PPT file to PDF file",
     icon: powerpointtopdf,
     cornerImage: powerpointtopdfhome,
-    link: "/PowerPointtopdf",
-    color: "bg-blue-200",
+    link: "/powerpointtopdf",
+    bgColor: "#D6E7FF",
   },
   {
     id: 9,
@@ -99,16 +99,7 @@ export const tools = [
     description: "Transform excel document to PDF",
     icon: exceltopdf,
     cornerImage: exceltopdfhome,
-    link: "/Exceltopdf",
-    color: "bg-yellow-300",
-  },
-  {
-    id: 10,
-    title: "More tools coming soon",
-    description: "",
-    icon: "",
-    cornerImage: "",
-    link: "#",
-    color: "bg-pink-100",
+    link: "/exceltopdf",
+    bgColor: "#F6F17F",
   },
 ];

@@ -8,12 +8,12 @@ const ToolsCard = ({ tools = [], onToggleFavorite }) => {
       {tools.map((tool) => {
         const hasValidIcon = tool.icon && tool.icon.trim() !== "";
         const hasValidCornerImage = tool.cornerImage && tool.cornerImage.trim() !== "";
-        const bgColor = tool.color && tool.color.startsWith("bg-") ? tool.color : "bg-gray-100";
 
         return (
           <div
-            key={tool.title}
-            className={`relative w-full h-[150px] px-4 pt-4 pb-4 rounded-md ${bgColor} shadow hover:shadow-md transition-transform hover:scale-[1.02] overflow-hidden`}
+            key={tool.id}
+            className="relative w-full h-[150px]  shadow px-4 pt-4 pb-4 overflow-hidden hover:shadow-md transition-transform hover:scale-[1.02]"
+            style={{ backgroundColor: tool.bgColor || "#f3f4f6" }}
           >
             {/* Favorite Star */}
             {onToggleFavorite && hasValidIcon && (
@@ -28,14 +28,13 @@ const ToolsCard = ({ tools = [], onToggleFavorite }) => {
               >
                 <img
                   src={tool.isFavorite ? startrue : starfalse}
-                  alt="Favorite Star"
+                  alt="Favorite"
                   className="w-5 h-5"
                 />
               </button>
             )}
 
-            {/* Main Content */}
-            <Link to={tool.link} title={tool.title} className="block h-full relative z-10">
+            <Link to={tool.link} className="block h-full relative z-10">
               {hasValidIcon && (
                 <img
                   src={tool.icon}
@@ -51,14 +50,16 @@ const ToolsCard = ({ tools = [], onToggleFavorite }) => {
               </p>
             </Link>
 
-            {/* Corner Decoration Image */}
-            {hasValidCornerImage && (
-              <img
-                src={tool.cornerImage}
-                alt={`${tool.title} decoration`}
-                className="absolute bottom-1 -right-2 w-[56px] h-[56px] object-contain z-0 filter brightness-[1000] saturate-0 contrast-[200]"
-              />
-            )}
+            {/* Corner Image - white using filters */}
+           {hasValidCornerImage && (
+  <img
+    src={tool.cornerImage}
+    alt={`${tool.title} decoration`}
+    className="absolute bottom-0 right-0 w-[60px] h-[60px] object-contain z-0 filter brightness-0 invert opacity-60"
+  />
+)}
+
+
           </div>
         );
       })}
@@ -67,6 +68,9 @@ const ToolsCard = ({ tools = [], onToggleFavorite }) => {
 };
 
 export default ToolsCard;
+
+
+
 
 
 
