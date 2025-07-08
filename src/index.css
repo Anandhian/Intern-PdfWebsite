@@ -13,3 +13,28 @@
   /* Custom dash pattern (works best in SVG, but kept here for clarity) */
   border-image: none;
 }
+@import "@fontsource/inter"; /* Defaults to weight 400 */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.text-tiny {
+  font-size: 11px !important;
+  line-height: 16px !important;
+}
+.popular-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 50px;
+  line-height: 1; /* 100% */
+  font-weight: 900;
+  letter-spacing: -0.02em; /* -2% */
+  text-align: center;
+  margin-bottom: 2rem; /* same as Tailwind's mb-8 */
+}
+
+
+
+.text-black-89 {
+  color: rgba(0, 0, 0, 0.898);
+}
+
