@@ -60,9 +60,10 @@ function Home() {
         </div>
 
         {/* ✅ Section Title */}
-      <h2 className=" popular-heading  font-['Inter'] text-center mb-8">
+  <h2 className="text-[20px] leading-[28px] sm:text-[32px] sm:leading-[36px] md:text-[40px] md:leading-[40px] font-black font-['Inter'] text-center mb-8">
   Popular Tools
 </h2>
+
 
 
         {/* ✅ Tabs */}
