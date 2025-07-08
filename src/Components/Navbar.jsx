@@ -1,33 +1,35 @@
 import React, { useState } from "react";
-import { FaLayerGroup, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AllToolsDropdown from "./AllToolsDropdown";
-import MobileMenu from "./MobileMenu";
 import ConvertDropdown from "./ConvertDropdown";
+import MobileMenu from "./MobileMenu";
+import Frame from '../assets/Frame.png'; // Logo image
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white">
-      <div className="w-full max-w-[1280px] mx-auto px-5 py-4 flex items-center relative">
-        {/* Logo - Left (Now clickable to go home) */}
-        <Link to="/" className="flex items-center gap-2 z-10">
-          <FaLayerGroup className="text-pink-600 text-[20px]" />
-          <span className="text-[16px] font-bold text-black">PDF Buddy</span>
+    <div className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+      {/* Navbar container */}
+      <div className="w-[1280px] h-[65px] mx-auto px-[8px] py-[10px] flex items-center">
+        
+        {/* Left: Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src={Frame} alt="Logo" className="w-5 h-5" />
+          <span className="text-[18px] leading-[16px] font-bold text-black-89">PDF Buddy</span>
         </Link>
 
-        {/* Center Nav - Only visible on md and up */}
-        <div className="hidden md:flex absolute  left-1/2 -translate-x-1/2 gap-[32px] text-[14px] font-medium text-black items-center">
+        {/* Center: Tools nav */}
+        <div className="hidden md:flex flex-grow justify-center gap-[32px] items-center text-[14px] leading-[16px] font-normal text-black-89">
           <AllToolsDropdown />
-            <ConvertDropdown></ConvertDropdown>
-          
+          <ConvertDropdown />
           <Link to="/merge" className="hover:text-blue-600">Merge PDF</Link>
           <Link to="/split" className="hover:text-blue-600">Split PDF</Link>
         </div>
 
-        {/* Mobile menu button - Right side, only on mobile */}
-        <div className="ml-auto md:hidden z-10">
+        {/* Right: Mobile menu button (only shown on mobile) */}
+        <div className="md:hidden ml-auto">
           <button
             className="text-2xl text-gray-700"
             onClick={() => setIsMobileMenuOpen(true)}
@@ -46,6 +48,10 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
 
 
 
